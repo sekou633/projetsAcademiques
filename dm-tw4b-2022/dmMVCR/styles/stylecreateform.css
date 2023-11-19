@@ -1,0 +1,205 @@
+body
+{
+  background-color : rgb(191, 226, 168); 
+}
+
+title .titre
+{
+  text-align: center;
+  color: red;
+}
+
+.propos
+{
+  /* float: left; */
+  text-align: justify;
+  margin: 40px;
+  background-color: rgb(222, 230, 217);
+  color: rgb(11, 12, 11);
+
+}
+
+.propos2
+{
+  /* float: left; */
+  text-align: justify;
+  margin: 40px;
+  background-color: rgb(222, 230, 217);
+  color: rgb(11, 12, 11);
+
+}
+
+/* .paragraphe
+{
+  font-size: medium;
+  justify-content: center;
+  /* Justifier le text */
+  /* text-align: justify; */
+  /* clear: both; */
+  /* color: black; */
+/* }  */
+
+.button_info
+{
+  color: rgb(236, 233, 233);
+  background-color: black;
+}
+/* .inputcreate */
+/* { */
+  /* margin: 10px; */
+  /* margin-left: 20em; */
+/* } */
+
+form 
+{
+  background-position : center;
+  /* background-color :; */
+  margin : 30px;
+  width : 1050px;
+  
+}
+h1
+{
+  font-family: "Times New Roman", Times, serif;
+  /*font-style: italic;*/
+  color: rgb(237, 241, 250);
+  background-color: black;
+  text-align: center;
+}
+
+.proposdemoi
+{
+  font-family: "Times New Roman", Times, serif;
+  /*font-style: italic;*/
+  color: rgb(237, 241, 250);
+  background-color: black;
+  text-align: center;
+
+}
+
+.infopays
+{
+  background-color: rgb(237, 241, 250);
+  margin : 50px;
+  width : 700px;
+  color: rgb(11, 12, 11);
+}
+
+legend
+{
+  text-align: center;
+  font-size: 25px;
+  font-style : italic;
+  color : white;
+  background-color: rgb(31, 28, 24);
+}
+
+figure {
+  float: right;
+	text-align: center;
+	box-shadow: 0 0 1px 1px black;
+	padding: .100em;
+	max-width: 450px;
+  display: flex;
+  flex-flow: column;
+  /* border: thin #c0c0c0 solid;
+  padding: 5px;
+  max-width: 220px;
+  margin: auto; */
+}
+
+.menu ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+/* .para
+{
+  float: left;
+} */
+
+img {
+  max-width: 1000px;
+  max-height: 700px;
+}
+
+figcaption {
+  background-color: #222;
+  color: #fff;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
+
+
+label .error {
+	color: red;
+	font-weight: bold;
+}
+
+label
+{
+  display : inline-block;
+  color : rgb(10, 9, 9);
+  /* background-color : black; */
+  font-style : all;
+  font-size : 19px;
+  padding : 2px;
+}
+section
+{
+    float : center;
+}
+
+.feedback {
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background: rgb(37, 220, 20);
+	border-radius: 1em;
+	margin: 1em auto;
+	max-width: 90%;
+	padding: .5em;
+}
+
+.listes {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.listes a {
+	display: flex;
+	max-width: 20em;
+	border: 1px solid black;
+	text-decoration: none;
+	color: black;
+	padding: .5em;
+	align-items: center;
+	margin: .2em;
+}
+
+.listes a:hover {
+	box-shadow: inset 0px 0px 1px 1px grey;
+}
+
+.listes h3 {
+	margin: .5em;
+}
+
+.listes .sample {
+	height: 2em;
+	width: 4em;
+}
+/* .TitreH1
+{
+  font-size : 20px;
+  font-weight : bold;
+  color : #000000;
+  text-align : center;
+  margin-top : 10px;
+  margin-bottom : 10px;
+} */
