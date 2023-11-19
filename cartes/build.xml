@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="cards" default="compile" basedir=".">
+
+    <!-- App properties -->
+    <property name="app.name" value="cards"/>
+    <property name="app.version" value="1.0"/>
+
+    <!-- Paths -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="doc.dir" value="doc"/>
+    <property name="test.dir" value="test"/>
+    <property name="deliverable.dir" value="deliverable"/>
+
+
+
+    <!-- Java properties -->
+    <property name="java.version" value="1.8"/>
+    <property name="java.source" value="1.8"/>
+    <property name="java.target" value="1.8"/>
+    <property name="java.compilerargs" value="-Xlint:unchecked"/>
+
+    <!-- Javadoc properties -->
+    <property name="javadoc.version" value="1.8"/>
+    <property name="javadoc.source" value="1.8"/>
+    <property name="javadoc.target" value="1.8"/>
+    <property name="javadoc.encoding" value="UTF-8"/>
+    <property name="javadoc.author" value="true"/>
+    <property name="javadoc.version" value="true"/>
+    <property name="javadoc.use" value="true"/>
+    <property name="javadoc.windowtitle" value="${app.name} ${app.version} API"/>
+    <property name="javadoc.doctitle" value="${app.name} ${app.version} API"/>
+    <property name="javadoc.header" value="&lt;h1&gt;${app.name} ${app.version} API&lt;/h1&gt;"/>
+    <property name="javadoc.footer" value="&lt;h2&gt;${app.name} ${app.version} API&lt;/h2&gt;"/>
+    <property name="javadoc.bottom" value="&lt;h3&gt;${app.name} ${app.version} API&lt;/h3&gt;"/>
+
+    <!-- JAR properties -->
+    <property name="jar.manifest" value="manifest.mf"/>
+    <property name="jar.file" value="${app.name}-${app.version}.jar"/>
+    <property name="jar.dir" value="jar"/>
+
+    <!-- Path -->
+    <path id="classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- Init target -->
+    <target name="init" description="Create principal directories">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+        <mkdir dir="${jar.dir}"/>
+        <mkdir dir="${deliverable.dir}"/>
+
+    </target>
+
+    <!-- Clean target -->
+    <target name="clean" description="Clean unnecessary files">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${doc.dir}"/>
+        <delete dir="${jar.dir}"/>
+    </target>
+
+    <!-- Compile target -->
+    <target name="compile" depends="clean, init" description="Compile all sources">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="true"
+               debuglevel="lines,vars,source" includeantruntime="false" source="${java.source}"
+               target="${java.target}" encoding="UTF-8">
+            <classpath refid="classpath"/>
+            <compilerarg line="${java.compilerargs}"/>
+        </javac>
+
+        <copy todir="${build.dir}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.properties"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- Javadoc target -->
+    <target name="javadoc" depends="compile" description="Generate javadoc">
+        <javadoc sourcepath="${src.dir}" destdir="${doc.dir}" author="${javadoc.author}"
+                 version="${javadoc.version}" use="${javadoc.use}" windowtitle="${javadoc.windowtitle}"
+                 doctitle="${javadoc.doctitle}" header="${javadoc.header}" footer="${javadoc.footer}"
+                 bottom="${javadoc.bottom}" source="${javadoc.source}"
+                 encoding="${javadoc.encoding}">
+            <classpath refid="classpath"/>
+        </javadoc>
+    </target>
+
+    <!-- Jar target -->
+    <target name="jar" depends="compile" description="Generate jar file">
+        <jar destfile="${jar.dir}/${jar.file}" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Manifest-Version" value="1.0"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Dist target -->
+    <target name="dist" depends="jar" description="Generate distribution">
+        <copy todir="${dist.dir}">
+            <fileset dir="${jar.dir}">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
+        <!-- Copy lib into ${basedir}/../blackjack/lib -->
+        <copy todir="${basedir}/../blackjack/lib">
+            <fileset dir="${jar.dir}">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- Run target -->
+       <target name="run" depends="compile" description="Run application">
+           <java classname="core.Main" fork="true">
+               <classpath refid="classpath"/>
+               <classpath path="${build.dir}"/>
+           </java>
+       </target>
+
+
+    <!-- Help target -->
+    <target name="help" description="Display help">
+        <echo>Available targets:</echo>
+        <echo>  init</echo>
+        <echo>  clean</echo>
+        <echo>  compile</echo>
+        <echo>  javadoc</echo>
+        <echo>  jar</echo>
+        <echo>  dist</echo>
+        <echo>  run</echo>
+        <echo>  help</echo>
+    </target>
+
+    <!-- Install target -->
+    <!-- Install test libraries -->
+
+
+</project>
