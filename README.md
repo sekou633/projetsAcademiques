@@ -53,7 +53,7 @@ Exemple:
 ## Auteurs
 
 - [DOUMBOUYA Sekou](https://github.com/sekou633/projetsAcademiques)
-- [GUILAVOGUI David](gdaviddobgo@gmail.com)
+- [GUILAVOGUI David](gdaviddogbo@gmail.com)
 
 ## License
 
